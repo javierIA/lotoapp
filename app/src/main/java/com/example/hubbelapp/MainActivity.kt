@@ -33,7 +33,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
-import androidx.core.view.isVisible
 import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
@@ -56,7 +55,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val TAG = "TFLite - ODT"
         const val REQUEST_IMAGE_CAPTURE: Int = 1
-        private const val MAX_FONT_SIZE = 96F
+
     }
 
     private lateinit var captureImageFab: Button
@@ -142,7 +141,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.saveIMG -> {
-                val image = (inputImageView.getDrawable() as BitmapDrawable)?.bitmap
+                val image = (inputImageView.getDrawable() as BitmapDrawable).bitmap
                 saveImg.saveImage(image)
             }
         }
@@ -164,7 +163,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             .build()
         val detector = ObjectDetector.createFromFileAndOptions(
             this,
-            "modeloheavy.tflite",
+            "modelvideo.tflite",
             options
         )
 
