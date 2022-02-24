@@ -1,4 +1,4 @@
-package com.example.hubbelapp
+package com.example.hubbelapp.helpers
 
 import android.app.Activity
 import android.content.ContentValues
@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
+import android.widget.Toast
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
@@ -52,6 +53,8 @@ class SaveImg (val activity: Activity){
         fos?.use {
             //Finally writing the bitmap to the output stream that we opened
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
+            Toast.makeText(activity, "Image saved in pictures.", Toast.LENGTH_SHORT).show()
+
         }
     }
 }
