@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Hubbelapp</string>
+    <string name="app_name">Loto</string>
     <string name="takepiture">Take camera</string>
     <string name="tv_take_photo">Take photo</string>
-    <string name="take_qr">Take QR</string>
+    <string name="save_img">Save</string>
 
     <string name="tv_description">Select a preset image or take a new photo</string>
     <string name="tv_placeholder">Object detection demo</string>

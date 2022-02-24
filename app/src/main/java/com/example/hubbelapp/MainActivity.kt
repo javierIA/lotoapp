@@ -16,10 +16,12 @@
 
 package com.example.hubbelapp
 
+import android.Manifest
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -29,15 +31,14 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import androidx.core.view.isVisible
 import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.image.TensorImage
-import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
 import java.io.File
 import java.io.IOException
@@ -46,7 +47,12 @@ import java.util.*
 import kotlin.math.max
 import kotlin.math.min
 
+
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+    private val PermissionsRequestCode = 123
+    private lateinit var managePermissions: ManagePermissions
+    private lateinit var saveImg: SaveImg
+    private lateinit var Detections:Detections
     companion object {
         const val TAG = "TFLite - ODT"
         const val REQUEST_IMAGE_CAPTURE: Int = 1
@@ -60,7 +66,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var imgSampleThree: ImageView
     private lateinit var tvPlaceholder: TextView
     private lateinit var currentPhotoPath: String
-    private lateinit var captureQr:Button
+    private lateinit var saveIMG: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,13 +79,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         imgSampleTwo = findViewById(R.id.imgSampleTwo)
         imgSampleThree = findViewById(R.id.imgSampleThree)
         tvPlaceholder = findViewById(R.id.tvPlaceholder)
-        captureQr=findViewById(R.id.captureQR)
+        saveIMG = findViewById(R.id.saveIMG)
+        saveIMG.isEnabled = false
 
         captureImageFab.setOnClickListener(this)
         imgSampleOne.setOnClickListener(this)
         imgSampleTwo.setOnClickListener(this)
         imgSampleThree.setOnClickListener(this)
-        captureQr.setOnClickListener(this)
+        saveIMG.setOnClickListener(this)
+        val list = listOf<String>(
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+
+        // Initialize a new instance of ManagePermissions class
+        managePermissions = ManagePermissions(this, list, PermissionsRequestCode)
+        saveImg = SaveImg(this)
+        managePermissions.checkPermissions()
+        Detections = Detections(this)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -99,26 +118,36 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id) {
             R.id.captureImageFab -> {
                 try {
+
                     dispatchTakePictureIntent()
+
                 } catch (e: ActivityNotFoundException) {
                     Log.e(TAG, e.message.toString())
                 }
+                saveIMG.isEnabled = true
             }
             R.id.imgSampleOne -> {
                 setViewAndDetect(getSampleImage(R.drawable.one))
+                saveIMG.isEnabled = true
+
             }
             R.id.imgSampleTwo -> {
                 setViewAndDetect(getSampleImage(R.drawable.two))
+                saveIMG.isEnabled = true
+
             }
             R.id.imgSampleThree -> {
                 setViewAndDetect(getSampleImage(R.drawable.three))
-            }
-            R.id.captureQR -> {
-                Toast.makeText(this, "You clicked me.", Toast.LENGTH_SHORT).show()
+                saveIMG.isEnabled = true
 
+            }
+            R.id.saveIMG -> {
+                val image = (inputImageView.getDrawable() as BitmapDrawable)?.bitmap
+                saveImg.saveImage(image)
             }
         }
     }
+
 
     /**
      * runObjectDetection(bitmap: Bitmap)
@@ -130,13 +159,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         // Step 2: Initialize the detector object
         val options = ObjectDetector.ObjectDetectorOptions.builder()
-                .setMaxResults(5)
-                .setScoreThreshold(0.3f)
-                .build()
+            .setMaxResults(5)
+            .setScoreThreshold(0.3f)
+            .build()
         val detector = ObjectDetector.createFromFileAndOptions(
-                this,
-                "modeloheavy.tflite",
-                options
+            this,
+            "modeloheavy.tflite",
+            options
         )
 
         // Step 3: Feed given image to the detector
@@ -152,31 +181,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             DetectionResult(it.boundingBox, text)
         }
         // Draw the detection result on the bitmap and show it.
-        val imgWithResult = drawDetectionResult(bitmap, resultToDisplay)
+        val imgWithResult =Detections.drawDetectionResult(bitmap, resultToDisplay)
         runOnUiThread {
             inputImageView.setImageBitmap(imgWithResult)
         }
     }
 
+
     /**
      * debugPrint(visionObjects: List<Detection>)
      *      Print the detection result to logcat to examine
      */
-    private fun debugPrint(results : List<Detection>) {
-        for ((i, obj) in results.withIndex()) {
-            val box = obj.boundingBox
-
-            Log.d(TAG, "Detected object: ${i} ")
-            Log.d(TAG, "  boundingBox: (${box.left}, ${box.top}) - (${box.right},${box.bottom})")
-
-            for ((j, category) in obj.categories.withIndex()) {
-                Log.d(TAG, "    Label $j: ${category.label}")
-                val confidence: Int = category.score.times(100).toInt()
-                Log.d(TAG, "    Confidence: ${confidence}%")
-            }
-        }
-    }
-
     /**
      * setViewAndDetect(bitmap: Bitmap)
      *      Set image to view and call object detection
@@ -311,56 +326,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
-    /**
-     * drawDetectionResult(bitmap: Bitmap, detectionResults: List<DetectionResult>
-     *      Draw a box around each objects and show the object's name.
-     */
-    private fun drawDetectionResult(
-        bitmap: Bitmap,
-        detectionResults: List<DetectionResult>
-    ): Bitmap {
-        val outputBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
-        val canvas = Canvas(outputBitmap)
-        val pen = Paint()
-        pen.textAlign = Paint.Align.LEFT
-
-        detectionResults.forEach {
-            // draw bounding box
-            pen.color = Color.RED
-            pen.strokeWidth = 8F
-            pen.style = Paint.Style.STROKE
-            val box = it.boundingBox
-            canvas.drawRect(box, pen)
-
-
-            val tagSize = Rect(0, 0, 0, 0)
-
-            // calculate the right font size
-            pen.style = Paint.Style.FILL_AND_STROKE
-            pen.color = Color.YELLOW
-            pen.strokeWidth = 2F
-
-            pen.textSize = MAX_FONT_SIZE
-            pen.getTextBounds(it.text, 0, it.text.length, tagSize)
-            val fontSize: Float = pen.textSize * box.width() / tagSize.width()
-
-            // adjust the font size so texts are inside the bounding box
-            if (fontSize < pen.textSize) pen.textSize = fontSize
-
-            var margin = (box.width() - tagSize.width()) / 2.0F
-            if (margin < 0F) margin = 0F
-            canvas.drawText(
-                it.text, box.left + margin,
-                box.top + tagSize.height().times(1F), pen
-            )
-        }
-        return outputBitmap
-    }
 }
-
-/**
- * DetectionResult
- *      A class to store the visualization info of a detected object.
- */
-data class DetectionResult(val boundingBox: RectF, val text: String)

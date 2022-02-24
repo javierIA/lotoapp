@@ -91,16 +91,16 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/captureQR"
+        android:id="@+id/saveIMG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/captureImageFab"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
-        android:layout_marginRight="10dp"
 
+        android:layout_marginRight="10dp"
         android:drawableLeft="@drawable/ic_camera"
-        android:text="@string/take_qr"
+        android:text="@string/save_img"
         android:textAllCaps="false" />
 
 </RelativeLayout>
