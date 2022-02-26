@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+
+    tools:context=".activity.Clock_check">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/clockNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/open_sans"
+            android:text="@string/clock_placeholder"
+            android:textAlignment="center"
+            android:textSize="40sp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/globe_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="230sp"
+        android:layout_gravity="center_horizontal"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+
+        app:lottie_rawRes="@raw/lf30_editor_juu4deix" />
+
+    <com.raycoarana.codeinputview.CodeInputView
+        android:id="@+id/codeclock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:code_text_color="#b12eff"
+        app:error_color="#77ce9d"
+        app:input_type="text"
+        app:length_of_code="4"
+        app:underline_color="#457ad1"
+        app:underline_selected_color="#9e1ace"
+
+        />
+    </LinearLayout>
+</LinearLayout>

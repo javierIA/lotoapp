@@ -23,7 +23,7 @@ class SaveImg (val activity: Activity){
         //For devices running android >= Q
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             //getting the contentResolver
-            activity?.contentResolver?.also { resolver ->
+            activity.contentResolver?.also { resolver ->
 
                 //Content resolver will process the contentvalues
                 val contentValues = ContentValues().apply {

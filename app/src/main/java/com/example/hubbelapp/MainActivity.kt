@@ -35,10 +35,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.lifecycleScope
+import com.example.hubbelapp.activity.Clock_check
+import com.example.hubbelapp.activity.QRscanner
 import com.example.hubbelapp.helpers.SaveImg
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.image.TensorImage
+import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
 import java.io.File
 import java.io.IOException
@@ -92,7 +95,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
-
         // Initialize a new instance of ManagePermissions class
         managePermissions = ManagePermissions(this, list, PermissionsRequestCode)
         saveImg = SaveImg(this)
@@ -108,7 +110,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             setViewAndDetect(getCapturedImage())
         }
     }
+    /**
+     * debugPrint(results : List<Detection>)
+     *      Read detection in formaT
+     *      COCO
+     */
+    private fun debugPrint(results : List<Detection>) {
+        for ((i, obj) in results.withIndex()) {
+            val box = obj.boundingBox
 
+            Log.d(TAG, "Detected object: ${i} ")
+            Log.d(TAG, "  boundingBox: (${box.left}, ${box.top}) - (${box.right},${box.bottom})")
+
+            for ((j, category) in obj.categories.withIndex()) {
+                Log.d(TAG, "    Label $j: ${category.label}")
+                val confidence: Int = category.score.times(100).toInt()
+                Log.d(TAG, "    Confidence: ${confidence}%")
+            }
+        }
+    }
 
     /**
      * onClick(v: View?)
@@ -142,8 +162,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.saveIMG -> {
-                val image = (inputImageView.getDrawable() as BitmapDrawable).bitmap
+                val image = (inputImageView.drawable as BitmapDrawable).bitmap
                 saveImg.saveImage(image)
+                val intent = Intent(this, QRscanner::class.java)
+                startActivity(intent)
             }
         }
     }
@@ -185,6 +207,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         runOnUiThread {
             inputImageView.setImageBitmap(imgWithResult)
         }
+        debugPrint(results)
+
     }
 
 

@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/open_sans"
             android:text="@string/tv_placeholder"
             android:textAlignment="center"
             android:textSize="40sp" />
@@ -38,8 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/llSampleImage"
         android:layout_marginStart="16dp"
+        android:fontFamily="@font/open_sans"
+
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:text="@string/tv_description" />
 
     <LinearLayout
@@ -85,7 +87,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="50sp"
+        android:fontFamily="@font/open_sans"
+
         android:drawableLeft="@drawable/ic_camera"
         android:text="@string/tv_take_photo"
         android:textAllCaps="false" />
@@ -97,8 +101,8 @@
         android:layout_alignTop="@id/captureImageFab"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
-
-        android:layout_marginRight="10dp"
+        android:fontFamily="@font/open_sans"
+        android:layout_marginRight="50sp"
         android:drawableLeft="@drawable/ic_save"
         android:text="@string/save_img"
         android:textAllCaps="false" />

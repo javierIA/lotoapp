@@ -9,7 +9,13 @@
         <entry key="app/src/main/res/drawable/flip_camera.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.197" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/font/montserrat.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_clockcheck.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_qr_clock.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_qr_take.xml" value="0.11730072463768115" />
+        <entry key="app/src/main/res/layout/activity_qrscanner.xml" value="0.1" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="app/src/main/res/xml/paths.xml" value="0.1890625" />
       </map>
     </option>
