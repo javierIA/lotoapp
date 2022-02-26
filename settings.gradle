@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Hubbelapp"
+rootProject.name = "lotoapp"
 include ':app'

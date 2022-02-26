@@ -1,14 +1,14 @@
-package com.example.hubbelapp.activity
+package com.example.lotoapp.activity
 
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.hubbelapp.R
+import com.example.lotoapp.R
 import com.raycoarana.codeinputview.CodeInputView
 
 
-class Clock_check : AppCompatActivity() {
+class Clockcheck : AppCompatActivity() {
     private lateinit var codeInputView: CodeInputView
     private val mHandler = Handler()
 

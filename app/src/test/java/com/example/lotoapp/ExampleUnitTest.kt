@@ -1,4 +1,4 @@
-package com.example.hubbelapp
+package com.example.lotoapp
 
 import org.junit.Test
 

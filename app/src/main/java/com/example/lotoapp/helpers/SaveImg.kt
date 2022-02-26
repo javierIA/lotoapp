@@ -1,4 +1,4 @@
-package com.example.hubbelapp.helpers
+package com.example.lotoapp.helpers
 
 import android.app.Activity
 import android.content.ContentValues

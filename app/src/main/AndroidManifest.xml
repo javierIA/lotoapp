@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.hubbelapp">
+    package="com.example.lotoapp">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -24,17 +24,17 @@
         android:hardwareAccelerated="true">
 
         <activity
-            android:name=".activity.QRscanner"
+            android:name="com.example.lotoapp.activity.QRscanner"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"
             tools:replace="screenOrientation"
             android:stateNotNeeded="true"/>
         <activity
-            android:name=".activity.Clock_check"
+            android:name="com.example.lotoapp.activity.Clockcheck"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.lotoapp.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,7 +45,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.hubbelapp.fileprovider"
+            android:authorities="com.example.lotoapp.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

@@ -1,12 +1,11 @@
-package com.example.hubbelapp.activity
+package com.example.lotoapp.activity
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.hubbelapp.R
+import com.example.lotoapp.R
 import com.google.zxing.integration.android.IntentIntegrator
 
 class QRscanner : AppCompatActivity() {
@@ -17,6 +16,15 @@ class QRscanner : AppCompatActivity() {
         btnqr = findViewById(R.id.qrbtn)
         btnqr.setOnClickListener{
             initScanner()
+        }
+        var actionBar = supportActionBar
+
+        // showing the back button in action bar
+        if (actionBar != null) {
+            actionBar.displayOptions = androidx.appcompat.app.ActionBar.DISPLAY_SHOW_CUSTOM
+            actionBar.setCustomView(R.layout.toolbar)
+            actionBar.title="jalos"
+
         }
     }
     private fun initScanner(){

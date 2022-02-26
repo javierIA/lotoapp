@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.hubbelapp
+package com.example.lotoapp
 
 import android.Manifest
 import android.app.Activity
@@ -35,9 +35,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.lifecycleScope
-import com.example.hubbelapp.activity.Clock_check
-import com.example.hubbelapp.activity.QRscanner
-import com.example.hubbelapp.helpers.SaveImg
+import com.example.lotoapp.activity.QRscanner
+import com.example.lotoapp.helpers.SaveImg
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.image.TensorImage
@@ -71,7 +70,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var currentPhotoPath: String
     private lateinit var saveIMG: Button
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -100,6 +98,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         saveImg = SaveImg(this)
         managePermissions.checkPermissions()
         Detections = Detections(this)
+        var actionBar = getSupportActionBar()
+
+        // showing the back button in action bar
+        if (actionBar != null) {
+            actionBar.setDisplayUseLogoEnabled(true)
+            actionBar.setIcon(R.drawable.ic_camera)
+            actionBar.elevation=40f
+
+    }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -341,7 +348,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 photoFile?.also {
                     val photoURI: Uri = FileProvider.getUriForFile(
                         this,
-                        "com.example.hubbelapp.fileprovider",
+                        "com.example.lotoapp.fileprovider",
                         it
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)

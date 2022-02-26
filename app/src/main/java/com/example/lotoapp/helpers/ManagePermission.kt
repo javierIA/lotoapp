@@ -1,4 +1,4 @@
-package com.example.hubbelapp
+package com.example.lotoapp
 
 import android.app.Activity
 import android.app.AlertDialog
