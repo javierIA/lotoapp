@@ -10,11 +10,14 @@ import com.example.hubbelapp.R
 import com.google.zxing.integration.android.IntentIntegrator
 
 class QRscanner : AppCompatActivity() {
-
+    private lateinit var btnqr: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrscanner)
-        initScanner()
+        btnqr = findViewById(R.id.qrbtn)
+        btnqr.setOnClickListener{
+            initScanner()
+        }
     }
     private fun initScanner(){
         val integrator = IntentIntegrator(this)

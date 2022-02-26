@@ -2,10 +2,14 @@
     <string name="app_name">Loto</string>
     <string name="take_picture">Take camera</string>
     <string name="tv_take_photo">Take photo</string>
+    <string name="tv_take_qr">Take QR</string>
+
     <string name="save_img">Save</string>
 
     <string name="tv_description">Select a preset image or take a new photo</string>
-    <string name="tv_placeholder">Please take photo of paddock</string>
+    <string name="tv_placeholder">Please take photo of padlock</string>
     <string name="clock_placeholder">Please enter your clock number</string>
+    <string name="qr_placeholder">Please enter QR code of stations</string>
+
 
 </resources>

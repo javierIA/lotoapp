@@ -1,11 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.QRscanner">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/QrScanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/open_sans"
+            android:text="@string/qr_placeholder"
+            android:textAlignment="center"
+            android:textSize="40sp" />
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/qrAnim"
+            android:layout_width="wrap_content"
+            android:layout_height="230sp"
+            android:layout_gravity="center_horizontal"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:lottie_rawRes="@raw/qrcode" />
+        <Button
+            android:id="@+id/qrbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/open_sans"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+
+            android:drawableLeft="@drawable/ic_camera"
+            android:text="@string/tv_take_qr"
+            android:textAllCaps="false" />
+
+</LinearLayout>
+</LinearLayout>
