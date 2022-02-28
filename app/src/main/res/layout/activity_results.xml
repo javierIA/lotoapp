@@ -4,42 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    tools:context=".activitys.Results"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    tools:context=".activitys.QRscanner">
+    android:layout_gravity="center">
+
 
 
         <TextView
-
-            android:id="@+id/QrScanner"
+            android:id="@+id/txterror"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/open_sans"
-            android:text="@string/qr_placeholder"
+            android:text="@string/nofound"
             android:textAlignment="center"
-            android:textSize="40sp" />
+            android:textSize="20sp"
+            />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/qrAnim"
+            android:id="@+id/resultsanim"
             android:layout_width="wrap_content"
             android:layout_height="230sp"
             android:layout_gravity="center_horizontal"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
 
-            app:lottie_rawRes="@raw/qrcode" />
+            app:lottie_rawRes="@raw/error" />
+
+        <TextView
+            android:id="@+id/txterror2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/open_sans"
+            android:text="@string/warnings"
+            android:textAlignment="center"
+            android:textSize="20sp"/>
         <Button
-            android:id="@+id/qrbtn"
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:fontFamily="@font/open_sans"
             android:textSize="20sp"
             android:layout_gravity="center_horizontal"
-
             android:drawableLeft="@drawable/ic_camera"
-            android:text="@string/tv_take_qr"
+            android:text="@string/accept"
             android:textAllCaps="false" />
+    </LinearLayout>
 
-</LinearLayout>

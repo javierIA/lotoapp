@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Loto</string>
+    <string name="app_name">LOTO</string>
+
+
     <string name="take_picture">Take camera</string>
     <string name="tv_take_photo">Take photo</string>
     <string name="tv_take_qr">Take QR</string>
@@ -10,6 +12,11 @@
     <string name="tv_placeholder">Please take photo of padlock</string>
     <string name="clock_placeholder">Please enter your clock number</string>
     <string name="qr_placeholder">Please enter QR code of stations</string>
+    <string name="warnings">Make sure it is centered correctly and has sufficient illumination.</string>
+    <string name="nofound">A [component] was not detected, please retake the image..</string>
+    <string name="success">All components were correctly detected.</string>
+    <string name="sure">You can move forward, working in a safe environment</string>
+    <string name="accept">Accept</string>
 
 
 </resources>

@@ -35,7 +35,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.lifecycleScope
-import com.example.lotoapp.activity.QRscanner
+import com.example.lotoapp.activitys.Clockcheck
+import com.example.lotoapp.activitys.QRscanner
+import com.example.lotoapp.activitys.Results
 import com.example.lotoapp.helpers.SaveImg
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -58,7 +60,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val TAG = "TFLite - ODT"
         const val REQUEST_IMAGE_CAPTURE: Int = 1
-
     }
 
     private lateinit var captureImageFab: Button
@@ -98,15 +99,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         saveImg = SaveImg(this)
         managePermissions.checkPermissions()
         Detections = Detections(this)
-        var actionBar = getSupportActionBar()
+        var actionBar = supportActionBar
 
         // showing the back button in action bar
         if (actionBar != null) {
-            actionBar.setDisplayUseLogoEnabled(true)
-            actionBar.setIcon(R.drawable.ic_camera)
-            actionBar.elevation=40f
+            actionBar.displayOptions = androidx.appcompat.app.ActionBar.DISPLAY_SHOW_CUSTOM
+            actionBar.setCustomView(R.layout.toolbar)
 
-    }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -171,7 +171,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.saveIMG -> {
                 val image = (inputImageView.drawable as BitmapDrawable).bitmap
                 saveImg.saveImage(image)
-                val intent = Intent(this, QRscanner::class.java)
+                val intent = Intent(this, Clockcheck::class.java)
                 startActivity(intent)
             }
         }

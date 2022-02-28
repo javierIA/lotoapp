@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
 
-    tools:context=".activity.Clockcheck">
+    tools:context=".activitys.Clockcheck">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +43,9 @@
         app:input_type="text"
         app:length_of_code="4"
         app:underline_color="#457ad1"
-        app:underline_selected_color="#9e1ace"
+        app:show_password_while_typing="true"
+        app:animate_on_complete="true"
+        app:on_complete_delay="1000"
 
         />
     </LinearLayout>

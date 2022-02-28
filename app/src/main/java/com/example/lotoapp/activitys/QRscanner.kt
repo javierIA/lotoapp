@@ -1,4 +1,4 @@
-package com.example.lotoapp.activity
+package com.example.lotoapp.activitys
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,13 +17,12 @@ class QRscanner : AppCompatActivity() {
         btnqr.setOnClickListener{
             initScanner()
         }
-        var actionBar = supportActionBar
+        val actionBar = supportActionBar
 
         // showing the back button in action bar
         if (actionBar != null) {
             actionBar.displayOptions = androidx.appcompat.app.ActionBar.DISPLAY_SHOW_CUSTOM
             actionBar.setCustomView(R.layout.toolbar)
-            actionBar.title="jalos"
 
         }
     }
