@@ -5,106 +5,51 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:outlineProvider="none"
+    android:textAlignment="textEnd"
+    android:textDirection="firstStrongRtl"
     android:visibility="visible"
     tools:context="com.example.lotoapp.MainActivity">
-
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/tvDescription">
-
-        <TextView
-            android:id="@+id/tvPlaceholder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/open_sans"
-            android:text="@string/tv_placeholder"
-            android:textAlignment="center"
-            android:textSize="40sp" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:contentDescription="@null"
-            android:scaleType="fitCenter" />
-    </FrameLayout>
 
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/llSampleImage"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/open_sans"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/sourcesans"
+        android:gravity="left"
+        android:justificationMode="inter_word"
+        android:text="@string/lotopleaceHolder"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-        android:layout_marginTop="10dp"
-        android:text="@string/tv_description" />
-
-    <LinearLayout
-        android:id="@+id/llSampleImage"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/captureImageFab"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_alignTop="@id/tvDescription"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/logohubbel" />
 
-        <ImageView
-            android:id="@+id/imgSampleOne"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            android:src="@drawable/one" />
-
-        <ImageView
-            android:id="@+id/imgSampleTwo"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            android:src="@drawable/two" />
-
-        <ImageView
-            android:id="@+id/imgSampleThree"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            android:src="@drawable/three" />
-    </LinearLayout>
 
     <Button
-        android:id="@+id/captureImageFab"
+        android:id="@+id/mainNextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="50sp"
-        android:fontFamily="@font/open_sans"
-
-        android:drawableLeft="@drawable/ic_camera"
-        android:text="@string/tv_take_photo"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/saveIMG"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/captureImageFab"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:fontFamily="@font/open_sans"
-        android:layout_marginRight="50sp"
-        android:drawableLeft="@drawable/ic_save"
-        android:text="@string/save_img"
-        android:textAllCaps="false" />
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/btn"
+        android:drawableEnd="@drawable/ic_baseline_navigate_next_24"
+        android:fontFamily="@font/sourcesans"
+        android:text="@string/next"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
 
 </RelativeLayout>

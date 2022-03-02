@@ -1,9 +1,8 @@
-package com.example.lotoapp
+package com.example.lotoapp.helpers
 
-import android.app.Activity
 import android.graphics.*
 
-class Detections(val activity: Activity) {
+class Detections() {
 
     fun drawDetectionResult(
         bitmap: Bitmap,

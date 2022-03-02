@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="pink_200">#FFF64C71</color>
-    <color name="blue_500">#FF242582</color>
-    <color name="blue_700">#FF242582</color>
+    <color name="blue_500">#FFE01B</color>
+    <color name="blue_700">#2A2B2E</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#FF232629</color>
     <color name="white">#E8E8E8</color>
 </resources>

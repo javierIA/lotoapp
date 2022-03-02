@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:visibility="visible"
+    tools:context="com.example.lotoapp.InterferenceOB">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/Interference_button">
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/Placeholder_interference"
+            android:layout_width="wrap_content"
+            android:layout_height="400sp"
+            android:layout_gravity="center_horizontal"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_scale="2.0"
+            app:lottie_rawRes="@raw/padlock" />
+        <ImageView
+            android:id="@+id/imageView_Interference"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:maxHeight="300sp"
+            android:maxWidth="300sp"
+            android:scaleType="fitCenter" />
+        <TextView
+
+            android:id="@+id/txt_Interference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:fontFamily="@font/sourcesans"
+            android:text="@string/loto"
+            android:textAlignment="center"
+            android:layout_marginStart="16dp"
+            android:textSize="20sp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/labeled_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Interference_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/sourcesans"
+        android:drawableRight="@drawable/ic_camera"
+        android:text="@string/tv_take_photo"
+        android:layout_marginBottom="40dp"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:background="@drawable/btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</RelativeLayout>

@@ -6,26 +6,36 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.39427083333333335" />
         <entry key="app/src/main/res/drawable-anydpi/ic_save.xml" value="0.3045" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3045" />
+        <entry key="app/src/main/res/drawable/btn.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/flip_camera.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/logo.xml" value="0.1035" />
+        <entry key="app/src/main/res/drawable/logohubbel.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/logowhite.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/lotologo.xml" value="0.1035" />
         <entry key="app/src/main/res/drawable/lotologodos.xml" value="0.1035" />
         <entry key="app/src/main/res/font/montserrat.xml" value="0.215625" />
-        <entry key="app/src/main/res/layout/activity_clockcheck.xml" value="0.18" />
+        <entry key="app/src/main/res/font/open_sans.xml" value="0.10493421052631578" />
+        <entry key="app/src/main/res/font/roboto.xml" value="0.1769736842105263" />
+        <entry key="app/src/main/res/layout-v26/activity_main.xml" value="0.10733695652173914" />
+        <entry key="app/src/main/res/layout/activity_clockcheck.xml" value="0.1742857142857143" />
+        <entry key="app/src/main/res/layout/activity_interference_ob.xml" value="0.12" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_qr_clock.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_qr_take.xml" value="0.11730072463768115" />
         <entry key="app/src/main/res/layout/activity_qrscanner.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_results.xml" value="0.12" />
-        <entry key="app/src/main/res/layout/toolbar.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_results.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/main_activity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.10723684210526316" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1035" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_loto.xml" value="0.146" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_loto_round.xml" value="0.146" />
         <entry key="app/src/main/res/xml/paths.xml" value="0.1890625" />
       </map>
     </option>

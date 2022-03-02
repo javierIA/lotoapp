@@ -1,29 +1,39 @@
 package com.example.lotoapp.activitys
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lotoapp.InterferenceOB
 import com.example.lotoapp.R
 import com.google.zxing.integration.android.IntentIntegrator
+import java.net.IDN
 
 class QRscanner : AppCompatActivity() {
     private lateinit var btnqr: Button
+    private lateinit var id: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_qrscanner)
-        btnqr = findViewById(R.id.qrbtn)
-        btnqr.setOnClickListener{
-            initScanner()
-        }
         val actionBar = supportActionBar
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         // showing the back button in action bar
         if (actionBar != null) {
             actionBar.displayOptions = androidx.appcompat.app.ActionBar.DISPLAY_SHOW_CUSTOM
             actionBar.setCustomView(R.layout.toolbar)
 
+        }
+        setContentView(R.layout.activity_qrscanner)
+        btnqr = findViewById(R.id.qrbtn)
+        btnqr.setOnClickListener{
+            initScanner()
+        }
+        val extras = intent.extras
+
+        if (extras != null) {
+            id = extras.getString("id").toString()
         }
     }
     private fun initScanner(){
@@ -41,7 +51,11 @@ class QRscanner : AppCompatActivity() {
             if (result.contents == null) {
                 Toast.makeText(this, "Cancelado", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(this, "El valor escaneado es: " + result.contents, Toast.LENGTH_LONG).show()
+                val intent = Intent(this, InterferenceOB::class.java)
+                intent.putExtra("id",id)
+                intent.putExtra("name",result.contents)
+                intent.putExtra("number",3)
+                startActivity(intent)
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)

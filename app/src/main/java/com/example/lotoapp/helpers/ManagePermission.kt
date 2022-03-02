@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-class ManagePermissions(val activity: Activity,val list: List<String>,val code:Int) {
+class ManagePermissions(private val activity: Activity, val list: List<String>, val code:Int) {
 
     // Check permissions at runtime
     fun checkPermissions() {
@@ -46,7 +46,7 @@ class ManagePermissions(val activity: Activity,val list: List<String>,val code:I
         val builder = AlertDialog.Builder(activity)
         builder.setTitle("Need permission(s)")
         builder.setMessage("Some permissions are required to do the task.")
-        builder.setPositiveButton("OK", { dialog, which -> requestPermissions() })
+        builder.setPositiveButton("OK") { dialog, which -> requestPermissions() }
         val dialog = builder.create()
         dialog.show()
     }

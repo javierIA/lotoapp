@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/open_sans"
+            android:fontFamily="@font/sourcesans"
             android:text="@string/nofound"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -28,7 +28,6 @@
             android:layout_gravity="center_horizontal"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-
             app:lottie_rawRes="@raw/error" />
 
         <TextView
@@ -36,18 +35,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/open_sans"
+            android:fontFamily="@font/sourcesans"
             android:text="@string/warnings"
             android:textAlignment="center"
             android:textSize="20sp"/>
         <Button
-            android:id="@+id/back"
+            android:id="@+id/backresults"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/open_sans"
+            android:fontFamily="@font/sourcesans"
             android:textSize="20sp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
             android:drawableLeft="@drawable/ic_camera"
+            android:background="@drawable/btn"
             android:text="@string/accept"
             android:textAllCaps="false" />
     </LinearLayout>

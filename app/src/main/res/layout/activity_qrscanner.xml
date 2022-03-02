@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/open_sans"
+            android:fontFamily="@font/sourcesans"
             android:text="@string/qr_placeholder"
             android:textAlignment="center"
             android:textSize="40sp" />
@@ -23,22 +23,21 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/qrAnim"
             android:layout_width="wrap_content"
-            android:layout_height="230sp"
+            android:layout_height="400sp"
             android:layout_gravity="center_horizontal"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-
-            app:lottie_rawRes="@raw/qrcode" />
+            app:lottie_scale="2.0"
+            app:lottie_rawRes="@raw/qrstation" />
         <Button
             android:id="@+id/qrbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:fontFamily="@font/open_sans"
+            android:fontFamily="@font/sourcesans"
             android:textSize="20sp"
             android:layout_gravity="center_horizontal"
-
-            android:drawableLeft="@drawable/ic_camera"
+            android:drawableEnd="@drawable/ic_baseline_qr_code_24"
             android:text="@string/tv_take_qr"
             android:textAllCaps="false" />
 
