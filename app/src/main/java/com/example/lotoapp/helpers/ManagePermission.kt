@@ -1,4 +1,4 @@
-package com.example.lotoapp
+package com.example.loto
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-class ManagePermissions(private val activity: Activity, val list: List<String>, val code:Int) {
+class ManagePermissions(private val activity: Activity, val list: List<String>, val code: Int) {
 
     // Check permissions at runtime
     fun checkPermissions() {
@@ -35,7 +35,8 @@ class ManagePermissions(private val activity: Activity, val list: List<String>, 
     private fun deniedPermission(): String {
         for (permission in list) {
             if (ContextCompat.checkSelfPermission(activity, permission)
-                == PackageManager.PERMISSION_DENIED) return permission
+                == PackageManager.PERMISSION_DENIED
+            ) return permission
         }
         return ""
     }

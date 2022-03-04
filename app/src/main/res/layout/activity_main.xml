@@ -8,7 +8,7 @@
     android:textAlignment="textEnd"
     android:textDirection="firstStrongRtl"
     android:visibility="visible"
-    tools:context="com.example.lotoapp.MainActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tvDescription"
@@ -33,7 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/tvDescription"
         android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/logohubbel" />
 
 

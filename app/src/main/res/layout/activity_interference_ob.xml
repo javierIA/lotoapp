@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:visibility="visible"
-    tools:context="com.example.lotoapp.InterferenceOB">
+    tools:context=".InterferenceOB">
 
 
     <FrameLayout

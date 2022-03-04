@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.lotoapp.InterferenceOB
 import com.example.lotoapp.R
 import com.google.zxing.integration.android.IntentIntegrator
-import java.net.IDN
 
 class QRscanner : AppCompatActivity() {
     private lateinit var btnqr: Button
@@ -27,7 +26,7 @@ class QRscanner : AppCompatActivity() {
         }
         setContentView(R.layout.activity_qrscanner)
         btnqr = findViewById(R.id.qrbtn)
-        btnqr.setOnClickListener{
+        btnqr.setOnClickListener {
             initScanner()
         }
         val extras = intent.extras
@@ -36,7 +35,8 @@ class QRscanner : AppCompatActivity() {
             id = extras.getString("id").toString()
         }
     }
-    private fun initScanner(){
+
+    private fun initScanner() {
         val integrator = IntentIntegrator(this)
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
         integrator.setPrompt("Scan ticket of workstation")
@@ -52,10 +52,11 @@ class QRscanner : AppCompatActivity() {
                 Toast.makeText(this, "Cancelado", Toast.LENGTH_LONG).show()
             } else {
                 val intent = Intent(this, InterferenceOB::class.java)
-                intent.putExtra("id",id)
-                intent.putExtra("name",result.contents)
-                intent.putExtra("number",3)
+                intent.putExtra("id", id)
+                intent.putExtra("name", result.contents)
+                intent.putExtra("number", 3)
                 startActivity(intent)
+                this.finish()
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)

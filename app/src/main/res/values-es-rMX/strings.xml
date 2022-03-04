@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LOTO</string>
+
+
+    <string name="take_picture">Tomar cámara</string>
+    <string name="tv_take_photo">Abrir cámara</string>
+    <string name="tv_take_qr">Tomar QR</string>
+
+    <string name="save_img">Guardar</string>
+
+    <string name="tv_description">Selecciona una imagen preestablecida o toma una nueva foto</string>
+    <string name="tv_placeholder">Toma una foto del candado</string>
+    <string name="clock_placeholder">Por favor, escanee el código QR de su gafete</string>
+    <string name="qr_placeholder">Por favor, introduzca el código QR de las estaciones</string>
+    <string name="warnings">Asegúrese de que está centrado correctamente y tiene suficiente iluminación.</string>
+    <string name="nofound">No se ha detectado un [componente], por favor, vuelva a tomar la imagen.</string>
+    <string name="success">Se han detectado correctamente todos los componentes.</string>
+    <string name="sure">Puede seguir adelante, trabajando en un entorno seguro</string>
+    <string name="accept">Aceptar</string>
+    <string name="scanid">Escanea QR tu id</string>
+    <string name="scanwe">Escanea el QR del puesto de trabajo</string>
+    <string name="loto">Tomar foto del candado en la estación de trabajo</string>
+    <string name="lotopleaceHolder">Bienvenido al sistema de verificación LOTO, por favor, siga las instrucciones para verificar que está trabajando en un entorno seguro</string>
+    <string name="next">Siguiente</string>
+    <string name="back">Atrás</string>
+
+
+</resources>

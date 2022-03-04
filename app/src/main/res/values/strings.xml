@@ -10,7 +10,7 @@
 
     <string name="tv_description">Select a preset image or take a new photo</string>
     <string name="tv_placeholder">Please take photo of padlock</string>
-    <string name="clock_placeholder">Please scan your clock number</string>
+    <string name="clock_placeholder">Please scan your badges QR code</string>
     <string name="qr_placeholder">Please enter QR code of stations</string>
     <string name="warnings">Make sure it is centered correctly and has sufficient illumination.</string>
     <string name="nofound">A [component] was not detected, please retake the image..</string>

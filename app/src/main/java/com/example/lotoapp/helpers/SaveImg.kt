@@ -12,7 +12,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 
-class SaveImg (private val activity: Activity){
+class SaveImg(private val activity: Activity) {
     fun saveImage(bitmap: Bitmap) {
 
         val filename = "${System.currentTimeMillis()}.jpg"
@@ -57,4 +57,5 @@ class SaveImg (private val activity: Activity){
 
         }
     }
+
 }

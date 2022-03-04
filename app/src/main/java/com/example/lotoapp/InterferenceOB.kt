@@ -42,6 +42,7 @@ class InterferenceOB : AppCompatActivity() {
         const val TAG = "TFLite - ODT"
         const val REQUEST_IMAGE_CAPTURE: Int = 1
     }
+
     private lateinit var saveImg: SaveImg
     private lateinit var detections: Detections
     private lateinit var captureImageFab: Button
@@ -51,11 +52,11 @@ class InterferenceOB : AppCompatActivity() {
     private lateinit var currentPhotoPath: String
     private lateinit var id: String
     private lateinit var name: String
-    private  var number = 0
+    private var number = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interference_ob)
-        saveImg = SaveImg(this  )
+        saveImg = SaveImg(this)
         detections = Detections()
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
@@ -90,27 +91,32 @@ class InterferenceOB : AppCompatActivity() {
         }
 
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == InterferenceOB.REQUEST_IMAGE_CAPTURE &&
+        if (requestCode == REQUEST_IMAGE_CAPTURE &&
             resultCode == Activity.RESULT_OK
         ) {
             setViewAndDetect(getCapturedImage())
         }
     }
+
     /**
      * debugPrint(results : List<Detection>)
      *      Read detection in formaT
      *      COCO
      */
-    private fun debugPrint(results : List<Detection>) {
-        val intent = Intent(this,Results::class.java)
+    private fun debugPrint(results: List<Detection>) {
+        val intent = Intent(this, Results::class.java)
         if (results.isNotEmpty()) {
             for ((i, obj) in results.withIndex()) {
 
                 val box = obj.boundingBox
                 Log.d(TAG, "Detected object: $i ")
-                Log.d(TAG, "  boundingBox: (${box.left}, ${box.top}) - (${box.right},${box.bottom})")
+                Log.d(
+                    TAG,
+                    "  boundingBox: (${box.left}, ${box.top}) - (${box.right},${box.bottom})"
+                )
 
                 for ((j, category) in obj.categories.withIndex()) {
                     Log.d(TAG, "    Label $j: ${category.label}")
@@ -119,16 +125,15 @@ class InterferenceOB : AppCompatActivity() {
 
 
                 }
-                intent.putExtra("id",id)
-                intent.putExtra("name",name)
+                intent.putExtra("id", id)
+                intent.putExtra("name", name)
                 val putExtra = intent.putExtra("number", number)
-                intent.putExtra("detection",i.toString())
+                intent.putExtra("detection", i.toString())
                 startActivity(intent)
                 this.finish()
 
             }
-        }
-        else    {
+        } else {
             Log.d(TAG, "No object detected")
             startActivity(intent)
 
@@ -169,7 +174,7 @@ class InterferenceOB : AppCompatActivity() {
             DetectionResult(it.boundingBox, text)
         }
         // Draw the detection result on the bitmap and show it.
-        val imgWithResult =detections.drawDetectionResult(bitmap, resultToDisplay)
+        val imgWithResult = detections.drawDetectionResult(bitmap, resultToDisplay)
         runOnUiThread {
             inputImageView.setImageBitmap(imgWithResult)
             saveImg.saveImage(imgWithResult)
@@ -253,7 +258,6 @@ class InterferenceOB : AppCompatActivity() {
     }
 
 
-
     /**
      * rotateImage():
      *     Decodes and crops the captured image from camera.
@@ -308,7 +312,7 @@ class InterferenceOB : AppCompatActivity() {
                         it
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                    startActivityForResult(takePictureIntent,REQUEST_IMAGE_CAPTURE)
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
                 }
             }
         }

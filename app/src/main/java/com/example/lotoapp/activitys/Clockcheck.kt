@@ -3,15 +3,12 @@ package com.example.lotoapp.activitys
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.os.Looper
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lotoapp.R
 import com.google.zxing.integration.android.IntentIntegrator
-import com.raycoarana.codeinputview.CodeInputView
-import android.os.Handler as Handler
 
 class Clockcheck : AppCompatActivity() {
     private lateinit var button: Button
@@ -29,11 +26,12 @@ class Clockcheck : AppCompatActivity() {
         }
         button = findViewById(R.id.clockButton)
         button.setOnClickListener {
-          initScanner()
+            initScanner()
 
         }
 
     }
+
     private fun initScanner() {
         val integrator = IntentIntegrator(this)
 
@@ -42,6 +40,7 @@ class Clockcheck : AppCompatActivity() {
         integrator.setBeepEnabled(true)
         integrator.initiateScan()
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {
@@ -50,6 +49,7 @@ class Clockcheck : AppCompatActivity() {
             } else {
                 val intent = Intent(this, QRscanner::class.java)
                 intent.putExtra("id", result.contents)
+                this.finish()
                 startActivity(intent)
             }
         } else {
