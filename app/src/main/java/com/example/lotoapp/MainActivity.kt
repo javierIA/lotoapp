@@ -11,10 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.loto.ManagePermissions
 import com.example.lotoapp.R.*
-import com.example.lotoapp.activitys.Clockcheck
+import com.example.lotoapp.ui.Clockcheck
 import com.example.lotoapp.db.AppDatabase
 import kotlinx.android.synthetic.main.activity_main.*
-import com.example.lotoapp.activitys.Logs
+import com.example.lotoapp.ui.Logs
 class MainActivity : AppCompatActivity() {
     private val permissionsRequestCode = 123
     private lateinit var managePermissions: ManagePermissions

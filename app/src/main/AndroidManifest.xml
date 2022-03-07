@@ -24,21 +24,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.lotoapp">
         <activity
-            android:name=".activitys.Logs"
+            android:name=".ui.Logs"
             android:exported="false" />
         <activity
             android:name=".InterferenceOB"
             android:exported="false" />
         <activity
-            android:name=".activitys.Results"
+            android:name=".ui.Results"
             android:exported="false" />
         <activity
-            android:name=".activitys.QRscanner"
+            android:name=".ui.QRscanner"
             android:exported="false"
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".activitys.Clockcheck"
+            android:name=".ui.Clockcheck"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

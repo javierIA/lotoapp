@@ -1,5 +1,6 @@
 package com.example.lotoapp
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -21,7 +22,7 @@ import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.lifecycleScope
 import com.airbnb.lottie.LottieAnimationView
-import com.example.lotoapp.activitys.Results
+import com.example.lotoapp.ui.Results
 import com.example.lotoapp.helpers.DetectionResult
 import com.example.lotoapp.helpers.Detections
 import com.example.lotoapp.helpers.SaveImg
@@ -127,7 +128,7 @@ class InterferenceOB : AppCompatActivity() {
                 }
                 intent.putExtra("id", id)
                 intent.putExtra("name", name)
-                val putExtra = intent.putExtra("number", number)
+                intent.putExtra("number", number)
                 intent.putExtra("detection", i.toString())
                 startActivity(intent)
                 this.finish()
@@ -153,7 +154,7 @@ class InterferenceOB : AppCompatActivity() {
         // Step 2: Initialize the detector object
         val options = ObjectDetector.ObjectDetectorOptions.builder()
             .setMaxResults(7)
-            .setScoreThreshold(0.2f)
+            .setScoreThreshold(0.3f)
             .build()
         val detector = ObjectDetector.createFromFileAndOptions(
             this,
@@ -275,6 +276,7 @@ class InterferenceOB : AppCompatActivity() {
      * createImageFile():
      *     Generates a temporary image file for the Camera app to write to.
      */
+    @SuppressLint("SimpleDateFormat")
     private fun createImageFile(): File {
         // Create an image file name
         val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
